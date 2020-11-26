@@ -51,7 +51,7 @@ class FormController extends AbstractController
             $job->setDescription($data['description']);
             $job->setEmail($data['email']);
             $job->setPostuler($data['postuler']);
-            $job->setCategorieId($data['categorie_id']);
+            $job->setCategorie($data['categorie_id']);
             $em->persist($job);
             $em->flush();
         }
