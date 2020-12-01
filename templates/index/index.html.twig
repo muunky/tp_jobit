@@ -1,63 +1,60 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}des boulot pour personne
 {% endblock %}
 {% block stylesheets %}
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/style.css">
 {% endblock %}
 {% block body %}
-	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
-		}
-	</style>
+<style>
+	.example-wrapper {
+		margin: 1em auto;
+		max-width: 800px;
+		width: 95%;
+		font: 18px / 1.5 sans-serif;
+	}
+	.example-wrapper code {
+		background: #F5F5F5;
+		padding: 2px 6px;
+	}
+</style>
+<header>
+
 	<form action="" class="col-2">
+		<input type="text">
 		<select name="" id="">
 			{% for job in job %}
 				<option value="{{job.categorie}}">{{job.categorie}}</option>
 			{% endfor %}
 		</select>
 	</form>
-	<a href="/form" class="btn btn-primary" role="button">poster une annonce !</a>
-	<div class="container">
-		<h1>les boulot dispo !</h1>
+</header>
+<link rel="stylesheet" href="../style.css">
+<h1>les boulot dispo !</h1>
+<a href="/form" id="poste">poster une annonce</a>
 
-		{% for job in job %}
-			<div class="col-6 border border-secondary p-3 m-3">
-				<h1>{{job.contrat}}</h1>
-				<p>{{job.description}}</p>
-				<tr>
-					<td>
-						{{job.pays}}
-					</td>
-					<td>
-						-
-					</td>
-					<td>
-						{{job.lieu}}
-					</td>
-				</tr>
+{% for job in job %}
+	<div class="box">
+		<h1>{{job.contrat}}</h1>
+		<p>{{job.description}}</p>
+		<tr>
+			<td>
+				{{job.pays}}
+			</td>
+			<td>
+				-
+			</td>
+			<td>
+				{{job.lieu}}
+			</td>
+		</tr>
 
-				<p>{{job.categorie}}</p>
-				<a href="job/{{job.id}}" class="btn btn-primary" role="button">en savoir plus</a>
-			</a>
-		</div>
-	{% endfor %}
-	{% block javascripts %}
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-		<script>
-			$('.dropdown-toggle').dropdown();
-		</script>
-	{% endblock %}
+		<p>{{job.categorie}}</p>
+		<a href="job/{{job.id}}" class="btn btn-primary" role="button">en savoir plus</a>
+	</a>
+</div>{% endfor %}{% block javascripts %}
 
-
-</div>{% endblock %}
+<script>
+	$('.dropdown-toggle').dropdown();
+</script>{% endblock %}</div>{% endblock %}
